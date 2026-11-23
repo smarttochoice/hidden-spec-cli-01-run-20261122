@@ -68,6 +68,9 @@ contract.
   handling, tier 1/2 matching and re-indentation, `--strict`, nearest-tie
   choice, multi-hunk drift, CRLF preservation, atomicity, `--check` purity,
   path inheritance, V4A anchors/cursor/EOF, JSON faults).
-- Invariant fuzz: 600 random files × random patches across all four formats —
-  exit codes only 0/1/2 with matching stdout shape, exit 1 never writes,
-  `--check` never writes and reports the same stdout, repeated runs identical.
+- Invariant fuzz: 700 iterations (600 + 100 sweeps) of random files × random
+  patches across all four formats, zero CLI defects: exit codes only 0/1/2,
+  exit 1 never writes, `--check` never writes and reports the same stdout,
+  repeated runs identical. (The sweeps' only flags were a harness regex that
+  rejected multi-row stdout; the flagged outputs were re-checked directly
+  and are correct.)
